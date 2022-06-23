@@ -10,7 +10,10 @@ def main():
         sys.stderr.write("you need to specify the number of samples: {} <num_samples>\n".format(sys.argv[0]))
         sys.exit(-1)
     num_samples = int(sys.argv[1])
-    random.seed(2022)
+    seed = 2022
+    if len(sys.argv) > 2:
+        seed = int(sys.argv[2])
+    random.seed(seed)
     print("nif,last_session,duration")
     for _ in range(num_samples):
         nif = str(random.randint(100, 1099))
